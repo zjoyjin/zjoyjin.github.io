@@ -6,20 +6,32 @@
  */
 
 (function() {
-    // Check if intro has already been completed in this session
-    const introCompleted = sessionStorage.getItem('introCompleted');
+    // Wait for DOM to be fully loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initIntro);
+    } else {
+        initIntro();
+    }
 
-    // Get intro elements
-    const introOverlay = document.getElementById('intro-overlay');
-    const skipButton = document.getElementById('skip-intro');
-    const introCards = document.querySelectorAll('.intro-card');
+    function initIntro() {
+        // Check if intro has already been completed in this session
+        const introCompleted = sessionStorage.getItem('introCompleted');
 
-    // Only run intro on homepage and if not completed
-    if (!introOverlay) return; // Not on homepage
+        // Get intro elements
+        const introOverlay = document.getElementById('intro-overlay');
+        const skipButton = document.getElementById('skip-intro');
+        const introCards = document.querySelectorAll('.intro-card');
+
+        // Only run intro on homepage and if not completed
+        if (!introOverlay) return; // Not on homepage
 
     if (introCompleted === 'true') {
-        // Skip intro - hide overlay immediately
-        hideIntro();
+        // Skip intro - hide overlay and show main content immediately
+        document.body.classList.remove('intro-active');
+        document.body.classList.add('intro-complete');
+        if (introOverlay) {
+            introOverlay.style.display = 'none';
+        }
         return;
     }
 
@@ -130,6 +142,7 @@
      *    - Add animation-delay in CSS for stagger effect
      *    - Cards auto-detect and adjust
      */
+    }
 })();
 
 /**
