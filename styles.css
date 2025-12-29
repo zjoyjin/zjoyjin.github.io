@@ -1,4 +1,45 @@
 /* ========================================
+   CSS VARIABLES & ACCENT COLOR
+   ======================================== */
+
+:root {
+    /*
+     * ═══════════════════════════════════════
+     * SINGLE ACCENT COLOR SYSTEM
+     * ═══════════════════════════════════════
+     *
+     * CURRENT COLOR: Muted plum (#8b7a9e)
+     * Chosen to suggest: thoughtfulness, creativity, cognitive science
+     *
+     * WHERE IT APPEARS:
+     * - All hyperlinks (contact, projects, etc.)
+     * - Hover states on project cards
+     * - Small decorative elements (flowers, brushstrokes)
+     * - Sidebar active indicators
+     *
+     * HOW TO CHANGE THE ACCENT COLOR:
+     * 1. Replace --accent-color with your hex value
+     * 2. Generate lighter tints at: https://maketintsandshades.com
+     * 3. Update --accent-light (lighter) and --accent-very-light (very subtle)
+     *
+     * ALTERNATIVE COLOR SUGGESTIONS:
+     * - Warm terracotta: #c17b6c (earthy, approachable)
+     * - Sage green: #7a9e8b (calm, growth-focused)
+     * - Dusty blue: #7a8e9e (professional, trustworthy)
+     * - Soft amber: #c4a87a (warm, optimistic)
+     *
+     * TO REMOVE ACCENT ENTIRELY:
+     * Set all three variables to neutral gray:
+     * --accent-color: #666666;
+     * --accent-light: #999999;
+     * --accent-very-light: #e0e0e0;
+     */
+    --accent-color: #8b7a9e;
+    --accent-light: #b8aec4;
+    --accent-very-light: #e8e4ec;
+}
+
+/* ========================================
    INTRO OVERLAY EXPERIENCE
    ======================================== */
 
@@ -312,6 +353,25 @@ body {
     margin: 0 auto;
     padding: 80px 40px 100px;
     flex: 1;
+    position: relative;
+}
+
+/*
+ * DECORATIVE ELEMENT: Bottom-left brushstroke accent
+ * Placement: Bottom-left corner of container
+ * To adjust: Change bottom/left values, width, or opacity
+ * To remove: Delete this entire ::after block
+ */
+.container::after {
+    content: "";
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-very-light) 30%, transparent 100%);
+    opacity: 0.4;
+    pointer-events: none;
 }
 
 /* Profile Section */
@@ -319,6 +379,27 @@ body {
     text-align: center;
     margin-bottom: 100px;
     padding-top: 40px;
+    position: relative;
+}
+
+/*
+ * DECORATIVE ELEMENT: Minimal floral accent
+ * Placement: Top-right corner of profile section
+ * To adjust: Change top/right values or opacity
+ * To remove: Delete this entire ::before block
+ */
+.profile-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%238b7a9e' opacity='0.12'%3E%3Ccircle cx='50' cy='50' r='3'/%3E%3Cellipse cx='50' cy='35' rx='4' ry='8' transform='rotate(0 50 50)'/%3E%3Cellipse cx='50' cy='35' rx='4' ry='8' transform='rotate(60 50 50)'/%3E%3Cellipse cx='50' cy='35' rx='4' ry='8' transform='rotate(120 50 50)'/%3E%3Cellipse cx='50' cy='35' rx='4' ry='8' transform='rotate(180 50 50)'/%3E%3Cellipse cx='50' cy='35' rx='4' ry='8' transform='rotate(240 50 50)'/%3E%3Cellipse cx='50' cy='35' rx='4' ry='8' transform='rotate(300 50 50)'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 .profile-image-container {
@@ -364,14 +445,14 @@ body {
 }
 
 .contact-link {
-    color: #0066cc;
+    color: var(--accent-color);
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.2s ease;
 }
 
 .contact-link:hover {
-    color: #0052a3;
+    color: #0a0a0a;
     text-decoration: underline;
 }
 
@@ -542,18 +623,18 @@ body {
 
 .project-link {
     display: inline-block;
-    color: #0066cc;
+    color: var(--accent-color);
     text-decoration: none;
     font-weight: 500;
     font-size: 1rem;
     transition: all 0.2s ease;
     padding: 8px 16px;
-    border: 1px solid #0066cc;
+    border: 1px solid var(--accent-color);
     border-radius: 6px;
 }
 
 .project-link:hover {
-    background-color: #0066cc;
+    background-color: var(--accent-color);
     color: #ffffff;
     text-decoration: none;
 }
@@ -592,14 +673,15 @@ body {
     position: relative;
 }
 
-/* Subtle flower decoration */
+/* Subtle flower decoration with accent color */
 .page-header::after {
     content: "✿";
     position: absolute;
     bottom: -8px;
     left: 0;
     font-size: 1rem;
-    color: #e0e0e0;
+    color: var(--accent-very-light);
+    opacity: 0.7;
 }
 
 .page-header h1 {
@@ -663,13 +745,14 @@ body {
     border-left-color: #0a0a0a;
 }
 
-/* Add small flower decoration */
+/* Add small flower decoration with accent */
 .sidebar-link.active::before {
     content: "✿";
     position: absolute;
     left: -14px;
     font-size: 0.85rem;
-    color: #999999;
+    color: var(--accent-light);
+    opacity: 0.8;
 }
 
 .experience-content {
@@ -688,15 +771,16 @@ body {
     position: relative;
 }
 
-/* Artistic brushstroke divider */
+/* Artistic brushstroke divider with accent */
 .section-divider::after {
     content: "";
     display: block;
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, #d0d0d0 0%, transparent 100%);
+    background: linear-gradient(90deg, var(--accent-light) 0%, transparent 100%);
     margin-top: 15px;
     border-radius: 2px;
+    opacity: 0.6;
 }
 
 .experience-list {
@@ -826,7 +910,7 @@ body {
 
 .project-detail:hover {
     background-color: #f5f5f5;
-    border-left-color: #0066cc;
+    border-left-color: var(--accent-color);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
@@ -934,7 +1018,7 @@ body {
 }
 
 .contact-link-large {
-    color: #0066cc;
+    color: var(--accent-color);
     text-decoration: none;
     font-size: 1.1rem;
     transition: all 0.2s ease;
@@ -942,7 +1026,7 @@ body {
 }
 
 .contact-link-large:hover {
-    color: #0052a3;
+    color: #0a0a0a;
     text-decoration: underline;
 }
 
@@ -1264,3 +1348,118 @@ body {
         font-size: 3.5rem;
     }
 }
+
+/* ========================================
+   DECORATIVE ELEMENTS GUIDE
+   ======================================== */
+
+/*
+ * ═══════════════════════════════════════
+ * SUMMARY OF ALL DECORATIVE ELEMENTS
+ * ═══════════════════════════════════════
+ *
+ * This website uses MINIMAL decorative touches to add personality
+ * without overwhelming the content. All decorations are:
+ * - Positioned at edges/margins (never behind text)
+ * - Low opacity (0.4-0.7)
+ * - Using the accent color system
+ * - Easily adjustable or removable
+ *
+ * ═══════════════════════════════════════
+ * DECORATION #1: Profile Section Flower
+ * ═══════════════════════════════════════
+ * Location: .profile-section::before (line ~348)
+ * Where: Top-right corner of profile section (homepage only)
+ * Style: Minimal 6-petal flower SVG
+ * Color: var(--accent-color) at 12% opacity
+ * Size: 80px × 80px
+ *
+ * To adjust opacity:
+ * Change "opacity: 0.5" value (0.0 = invisible, 1.0 = fully visible)
+ *
+ * To move position:
+ * Change "top: 0" and "right: 0" values
+ * Example: "top: 20px; right: 20px" moves it inward
+ *
+ * To remove entirely:
+ * Delete the entire .profile-section::before block
+ *
+ * ═══════════════════════════════════════
+ * DECORATION #2: Bottom Brushstroke
+ * ═══════════════════════════════════════
+ * Location: .container::after (line ~341)
+ * Where: Bottom-left of every page's main content
+ * Style: Horizontal gradient line (brushstroke effect)
+ * Color: var(--accent-very-light) fading to transparent
+ * Size: 120px wide × 2px tall
+ *
+ * To adjust subtlety:
+ * Change "opacity: 0.4" value
+ *
+ * To adjust length:
+ * Change "width: 120px" value
+ *
+ * To remove entirely:
+ * Delete the entire .container::after block
+ *
+ * ═══════════════════════════════════════
+ * DECORATION #3: Page Header Flower
+ * ═══════════════════════════════════════
+ * Location: .page-header::after (line ~613)
+ * Where: Bottom-left of page titles (Experience, Projects, etc.)
+ * Style: Single flower character "✿"
+ * Color: var(--accent-very-light) at 70% opacity
+ *
+ * To change the symbol:
+ * Replace "✿" with another character like "◆" "●" "✦" "❖"
+ *
+ * To remove entirely:
+ * Delete the entire .page-header::after block
+ *
+ * ═══════════════════════════════════════
+ * DECORATION #4: Sidebar Active Flower
+ * ═══════════════════════════════════════
+ * Location: .sidebar-link.active::before (line ~685)
+ * Where: Next to active sidebar link (Experience page)
+ * Style: Small flower character "✿"
+ * Color: var(--accent-light) at 80% opacity
+ *
+ * To remove entirely:
+ * Delete the entire .sidebar-link.active::before block
+ *
+ * ═══════════════════════════════════════
+ * DECORATION #5: Section Divider Brushstroke
+ * ═══════════════════════════════════════
+ * Location: .section-divider::after (line ~711)
+ * Where: Under section headings (Industry, Research, etc.)
+ * Style: Horizontal gradient line
+ * Color: var(--accent-light) fading to transparent
+ * Size: 60px wide × 3px tall
+ *
+ * To adjust length:
+ * Change "width: 60px" value
+ *
+ * To remove entirely:
+ * Delete the entire .section-divider::after block
+ *
+ * ═══════════════════════════════════════
+ * QUICK TIPS FOR CUSTOMIZATION
+ * ═══════════════════════════════════════
+ *
+ * REDUCE VISUAL WEIGHT BY 50%:
+ * Find each decoration's opacity value and divide by 2
+ * Example: "opacity: 0.5" becomes "opacity: 0.25"
+ *
+ * CHANGE ALL DECORATIONS TO NEUTRAL:
+ * Set accent colors to grays (see top of file, line ~33)
+ *
+ * TEST BEFORE COMMITTING:
+ * - Open site in browser
+ * - Scroll through all pages
+ * - Check mobile view (resize browser)
+ * - Ensure decorations don't distract from content
+ *
+ * GOLDEN RULE:
+ * "If you notice the decoration before the content,
+ *  reduce the opacity or remove it."
+ */
