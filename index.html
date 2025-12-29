@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyee Jin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container">
+        <!-- About Me Section -->
+        <section class="about-me">
+            <h1>Joyee Jin</h1>
+            <p class="intro">I'm a Computer Science student at the University of Toronto specializing in Computational Cognitive Science and Mathematics. I build full-stack applications and ML systems that solve real problems, from depression detection tools used in research to web platforms serving thousands of students and cadets. Currently working on ML pipelines and database optimization at UofT while exploring human-computer interaction.</p>
+        </section>
+
+        <!-- Recent Projects Section -->
+        <section class="recent-projects">
+            <h2>Recent Projects</h2>
+
+            <div class="project-carousel">
+                <!-- Projects will rotate automatically via JavaScript -->
+                <!-- The first project with class 'active' will be shown initially -->
+
+                <!-- Project 1: Paper Reference System -->
+                <div class="project active" data-project="0">
+                    <h3 class="project-title">Paper Reference System</h3>
+                    <p class="project-description">Academic writing tool with article summarization and semantic search, reducing literature review time.</p>
+                    <p class="project-tech"><strong>Tech:</strong> Python, ML (semantic search), NLP</p>
+                    <a href="https://github.com/Paper-Reference-System" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+                </div>
+
+                <!-- Project 2: Hearing Disability Assistant -->
+                <div class="project" data-project="1">
+                    <h3 class="project-title">Hearing Disability Assistant</h3>
+                    <p class="project-description">Arduino-based wearable that detects critical sounds (alarms, knocks) and logs alerts to a companion web app.</p>
+                    <p class="project-tech"><strong>Tech:</strong> Arduino, Web Development, Hardware Integration</p>
+                    <a href="https://github.com/HOI" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+                </div>
+
+                <!-- Project 3: Stanford HCI Research -->
+                <div class="project" data-project="2">
+                    <h3 class="project-title">Social Media Depression Detection</h3>
+                    <p class="project-description">ML models (RoBERTa, Decision Trees) for detecting depression signals in social media, achieving 82% accuracy.</p>
+                    <p class="project-tech"><strong>Tech:</strong> Python, RoBERTa, PyTorch, Next.js, Vercel</p>
+                    <a href="#" class="project-link">Research Project</a>
+                </div>
+
+                <!--
+                    TO ADD A NEW PROJECT:
+                    1. Copy one of the project divs above
+                    2. Remove the 'active' class
+                    3. Update data-project to the next number (e.g., data-project="3")
+                    4. Update the title, description, tech stack, and link
+                    5. The JavaScript will automatically include it in rotation
+
+                    TO REMOVE A PROJECT:
+                    1. Delete the entire <div class="project"> block
+                    2. Update data-project numbers to be sequential (0, 1, 2, etc.)
+                -->
+            </div>
+
+            <!-- Navigation Dots (optional visual indicator) -->
+            <div class="carousel-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <!-- Add more dots if you add more projects -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
