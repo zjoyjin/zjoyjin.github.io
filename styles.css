@@ -1,3 +1,209 @@
+/* ========================================
+   INTRO OVERLAY EXPERIENCE
+   ======================================== */
+
+/* Intro Overlay - Full screen overlay that appears on first visit */
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* Hide overlay when intro is complete */
+.intro-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Skip Intro Button */
+.skip-intro-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.skip-intro-btn:hover {
+    background: #ffffff;
+    color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Container - holds all three intro cards */
+.intro-cards-container {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    padding: 20px;
+}
+
+/* Individual Intro Card */
+.intro-card {
+    width: 280px;
+    height: 380px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.6s ease;
+    animation: cardEntrance 0.6s ease backwards;
+}
+
+/* Stagger card entrance animations */
+.intro-card[data-card="1"] {
+    animation-delay: 0.1s;
+}
+
+.intro-card[data-card="2"] {
+    animation-delay: 0.2s;
+}
+
+.intro-card[data-card="3"] {
+    animation-delay: 0.3s;
+}
+
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effect - subtle lift and tilt */
+.intro-card:hover {
+    transform: translateY(-8px) rotateX(2deg);
+}
+
+/* Card is flipped */
+.intro-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Card is dismissed (fades out) */
+.intro-card.dismissed {
+    opacity: 0;
+    transform: scale(0.8) translateY(-40px);
+    pointer-events: none;
+}
+
+/* Card Inner - enables 3D flip */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+/* Card Front and Back - shared styles */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Front */
+.card-front {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 1px solid #e8e8e8;
+}
+
+/* Card Icon */
+.card-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    filter: grayscale(0.2);
+}
+
+.card-front h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #0a0a0a;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+}
+
+.card-hint {
+    font-size: 0.9rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Card Back */
+.card-back {
+    background: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 100%);
+    color: #ffffff;
+    transform: rotateY(180deg);
+}
+
+.card-back h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: -0.2px;
+    line-height: 1.4;
+}
+
+.card-back p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/* Main Content - blurred during intro */
+.main-content {
+    filter: blur(0px);
+    transition: filter 0.6s ease;
+}
+
+/* Blur main content when intro is active */
+body.intro-active .main-content {
+    filter: blur(8px);
+    pointer-events: none;
+}
+
+/* Remove blur when intro is complete */
+body.intro-complete .main-content {
+    filter: blur(0px);
+    pointer-events: auto;
+}
+
+/* ======================================== */
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -1019,5 +1225,41 @@ body {
 
     .experience-content {
         width: 100%;
+    }
+
+    /* Intro Cards - Mobile Responsive */
+    .intro-cards-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .intro-card {
+        width: 100%;
+        max-width: 320px;
+        height: 340px;
+    }
+
+    .skip-intro-btn {
+        top: 15px;
+        right: 15px;
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    .card-front h2 {
+        font-size: 1.4rem;
+    }
+
+    .card-back h3 {
+        font-size: 1.15rem;
+    }
+
+    .card-back p {
+        font-size: 0.95rem;
+    }
+
+    .card-icon {
+        font-size: 3.5rem;
     }
 }

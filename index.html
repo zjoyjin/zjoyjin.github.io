@@ -6,7 +6,70 @@
     <title>Joyee Jin - Software Developer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="intro-active">
+    <!-- Intro Overlay Experience -->
+    <!-- This overlay shows on first visit and can be customized below -->
+    <div id="intro-overlay" class="intro-overlay">
+        <!-- Skip Intro Button -->
+        <button id="skip-intro" class="skip-intro-btn">Skip intro →</button>
+
+        <!-- Card Container -->
+        <div class="intro-cards-container">
+            <!-- Card 1: Identity / Personality -->
+            <div class="intro-card" data-card="1">
+                <div class="card-inner">
+                    <!-- Front of Card -->
+                    <div class="card-front">
+                        <div class="card-icon">🧠</div>
+                        <h2>Who I Am</h2>
+                        <p class="card-hint">Click to explore</p>
+                    </div>
+                    <!-- Back of Card -->
+                    <div class="card-back">
+                        <h3>Computer Science meets Cognitive Science</h3>
+                        <p>I build AI systems that understand human behavior, combining machine learning with insights from psychology and neuroscience.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Featured Project -->
+            <div class="intro-card" data-card="2">
+                <div class="card-inner">
+                    <!-- Front of Card -->
+                    <div class="card-front">
+                        <div class="card-icon">🔬</div>
+                        <h2>What I Build</h2>
+                        <p class="card-hint">Click to explore</p>
+                    </div>
+                    <!-- Back of Card -->
+                    <div class="card-back">
+                        <h3>Depression Detection from Social Media</h3>
+                        <p>ML models (RoBERTa, Decision Trees) achieving 82% accuracy in detecting mental health signals. Deployed interactive prototypes for research at Stanford.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Experience Snapshot -->
+            <div class="intro-card" data-card="3">
+                <div class="card-inner">
+                    <!-- Front of Card -->
+                    <div class="card-front">
+                        <div class="card-icon">✨</div>
+                        <h2>Where I Work</h2>
+                        <p class="card-hint">Click to explore</p>
+                    </div>
+                    <!-- Back of Card -->
+                    <div class="card-back">
+                        <h3>Research × Industry</h3>
+                        <p>Building ML systems at UofT serving 1000+ students, conducting HCI research at Stanford, and developing web platforms for Canada's Department of National Defence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Website Content (blurred during intro) -->
+    <div id="main-content" class="main-content">
     <!-- Navigation Bar -->
     <nav class="nav-bar">
         <div class="nav-container">
@@ -145,6 +208,9 @@
             </div>
         </section>
     </main>
+
+    </div>
+    <!-- End Main Content -->
 
     <script src="script.js"></script>
 </body>

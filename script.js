@@ -1,5 +1,141 @@
 /**
- * Auto-rotating Project Carousel
+ * ========================================
+ * INTRO OVERLAY EXPERIENCE
+ * ========================================
+ * Manages the guided intro cards that appear on first visit
+ */
+
+(function() {
+    // Check if intro has already been completed in this session
+    const introCompleted = sessionStorage.getItem('introCompleted');
+
+    // Get intro elements
+    const introOverlay = document.getElementById('intro-overlay');
+    const skipButton = document.getElementById('skip-intro');
+    const introCards = document.querySelectorAll('.intro-card');
+
+    // Only run intro on homepage and if not completed
+    if (!introOverlay) return; // Not on homepage
+
+    if (introCompleted === 'true') {
+        // Skip intro - hide overlay immediately
+        hideIntro();
+        return;
+    }
+
+    // Track dismissed cards
+    let dismissedCount = 0;
+    const totalCards = introCards.length;
+
+    /**
+     * Handle card click - flip card, then dismiss it
+     */
+    function handleCardClick(event) {
+        const card = event.currentTarget;
+
+        // Ignore if already flipped or dismissed
+        if (card.classList.contains('flipped') || card.classList.contains('dismissed')) {
+            return;
+        }
+
+        // Flip the card
+        card.classList.add('flipped');
+
+        // After flip animation (600ms), dismiss the card
+        setTimeout(() => {
+            card.classList.add('dismissed');
+            dismissedCount++;
+
+            // If all cards dismissed, reveal main site
+            if (dismissedCount === totalCards) {
+                setTimeout(revealMainSite, 400);
+            }
+        }, 1200); // Show back of card for 1.2 seconds
+    }
+
+    /**
+     * Skip intro button handler
+     */
+    function skipIntro() {
+        // Mark all cards as dismissed immediately
+        introCards.forEach(card => {
+            card.classList.add('dismissed');
+        });
+
+        // Reveal main site
+        setTimeout(revealMainSite, 400);
+    }
+
+    /**
+     * Reveal the main website content
+     */
+    function revealMainSite() {
+        // Remove blur from main content
+        document.body.classList.remove('intro-active');
+        document.body.classList.add('intro-complete');
+
+        // Hide intro overlay
+        setTimeout(() => {
+            hideIntro();
+        }, 600);
+
+        // Mark intro as completed in session storage
+        sessionStorage.setItem('introCompleted', 'true');
+    }
+
+    /**
+     * Hide intro overlay completely
+     */
+    function hideIntro() {
+        if (introOverlay) {
+            introOverlay.classList.add('hidden');
+            document.body.classList.remove('intro-active');
+            document.body.classList.add('intro-complete');
+        }
+    }
+
+    // Add event listeners to cards
+    introCards.forEach(card => {
+        card.addEventListener('click', handleCardClick);
+    });
+
+    // Add event listener to skip button
+    if (skipButton) {
+        skipButton.addEventListener('click', skipIntro);
+    }
+
+    /**
+     * CUSTOMIZATION INSTRUCTIONS:
+     *
+     * 1. TO CHANGE CARD CONTENT:
+     *    - Edit the HTML in index.html
+     *    - Update .card-front for the initial card face
+     *    - Update .card-back for the flipped card content
+     *
+     * 2. TO CHANGE TIMING:
+     *    - Line 54: Change 1200ms (how long card back shows before dismissing)
+     *    - Line 71: Change 400ms (delay before revealing main site)
+     *
+     * 3. TO CHANGE INTRO FREQUENCY:
+     *    - Currently uses sessionStorage (once per browser session)
+     *    - Change to localStorage for once ever (survives browser close)
+     *    - Change sessionStorage to localStorage on lines 10 and 98
+     *
+     * 4. TO DISABLE INTRO:
+     *    - Remove class="intro-active" from <body> tag in index.html
+     *    - Or set sessionStorage.setItem('introCompleted', 'true') in console
+     *
+     * 5. TO ADD MORE CARDS:
+     *    - Add new .intro-card in HTML with sequential data-card number
+     *    - Add animation-delay in CSS for stagger effect
+     *    - Cards auto-detect and adjust
+     */
+})();
+
+/**
+ * ========================================
+ * AUTO-ROTATING PROJECT CAROUSEL
+ * ========================================
  * Automatically cycles through projects every 5 seconds with smooth fade transitions
  */
 
