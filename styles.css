@@ -10,33 +10,200 @@ body {
     background-color: #ffffff;
     color: #222222;
     line-height: 1.6;
-    padding: 20px;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.nav-logo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111111;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-logo:hover {
+    color: #555555;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-link {
+    color: #555555;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #111111;
+}
+
+.nav-link.active {
+    color: #111111;
+    font-weight: 500;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #111111;
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.nav-toggle span {
+    width: 22px;
+    height: 2px;
+    background-color: #111111;
+    margin: 3px 0;
+    transition: all 0.3s ease;
 }
 
 /* Container */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 60px 20px;
 }
 
-/* About Me Section */
-.about-me {
+/* Profile Section */
+.profile-section {
+    text-align: center;
     margin-bottom: 80px;
 }
 
-.about-me h1 {
+.profile-image-container {
+    margin-bottom: 25px;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f0f0f0;
+}
+
+.profile-section h1 {
     font-size: 2.5rem;
     font-weight: 600;
     margin-bottom: 20px;
     color: #111111;
 }
 
-.about-me .intro {
-    font-size: 1.125rem;
+.profile-section .intro {
+    font-size: 1.05rem;
     color: #444444;
-    max-width: 600px;
+    max-width: 700px;
+    margin: 0 auto 25px;
     line-height: 1.7;
+}
+
+/* Contact Links */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+    color: #0052a3;
+    text-decoration: underline;
+}
+
+.separator {
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+
+/* Experience Highlights Section */
+.experience-highlights {
+    margin-bottom: 80px;
+}
+
+.experience-highlights h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #111111;
+}
+
+.experience-grid {
+    display: grid;
+    gap: 35px;
+}
+
+.experience-item {
+    padding-bottom: 30px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+}
+
+.experience-item h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #111111;
+}
+
+.org-name {
+    font-size: 0.95rem;
+    color: #666666;
+    margin-bottom: 10px;
+}
+
+.experience-description {
+    font-size: 1rem;
+    color: #444444;
+    line-height: 1.6;
 }
 
 /* Recent Projects Section */
@@ -135,22 +302,298 @@ body {
     background-color: #888888;
 }
 
+/* Page Header (for all non-home pages) */
+.page-header {
+    margin-bottom: 50px;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #111111;
+}
+
+.page-subtitle {
+    font-size: 1.05rem;
+    color: #555555;
+    max-width: 700px;
+}
+
+/* Experience Page Styles */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.experience-detail {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 40px;
+}
+
+.experience-detail:last-child {
+    border-bottom: none;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 20px;
+}
+
+.experience-detail h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #111111;
+}
+
+.organization {
+    font-size: 1rem;
+    color: #666666;
+}
+
+.experience-date {
+    font-size: 0.9rem;
+    color: #888888;
+    white-space: nowrap;
+}
+
+.experience-points {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.experience-points li {
+    font-size: 1rem;
+    color: #444444;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+/* Skills Section */
+.skills-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.skills-section h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #111111;
+}
+
+.skills-grid {
+    display: grid;
+    gap: 30px;
+}
+
+.skill-category h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #111111;
+}
+
+.skill-category p {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.6;
+}
+
+/* Projects Page Styles */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.project-detail {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 40px;
+}
+
+.project-detail:last-child {
+    border-bottom: none;
+}
+
+.project-detail h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #111111;
+}
+
+.project-description-full {
+    font-size: 1rem;
+    color: #444444;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.tech-stack {
+    font-size: 0.95rem;
+    color: #666666;
+    margin-bottom: 12px;
+}
+
+.tech-stack strong {
+    color: #333333;
+}
+
+.project-status {
+    font-size: 0.9rem;
+    color: #888888;
+    font-style: italic;
+}
+
+/* Activities Page Styles */
+.activities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.activity-detail {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 40px;
+}
+
+.activity-detail:last-child {
+    border-bottom: none;
+}
+
+.activity-detail h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #111111;
+}
+
+.activity-description {
+    font-size: 1rem;
+    color: #444444;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.activity-date {
+    font-size: 0.9rem;
+    color: #888888;
+}
+
+/* Contact Page Styles */
+.contact-page-content {
+    max-width: 600px;
+}
+
+.contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.contact-method h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #111111;
+}
+
+.contact-link-large {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: color 0.2s ease;
+}
+
+.contact-link-large:hover {
+    color: #0052a3;
+    text-decoration: underline;
+}
+
+.contact-info {
+    font-size: 1rem;
+    color: #444444;
+}
+
+.contact-note {
+    font-size: 0.9rem;
+    color: #666666;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px 15px;
+    /* Mobile Navigation */
+    .nav-toggle {
+        display: flex;
     }
 
-    .about-me h1 {
+    .nav-menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav-menu.active {
+        max-height: 300px;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #f5f5f5;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 15px 20px;
+    }
+
+    .nav-link.active::after {
+        display: none;
+    }
+
+    /* Content */
+    .container {
+        padding: 40px 20px;
+    }
+
+    .profile-section {
+        margin-bottom: 60px;
+    }
+
+    .profile-section h1 {
         font-size: 2rem;
     }
 
-    .about-me .intro {
+    .profile-section .intro {
         font-size: 1rem;
     }
 
+    .experience-highlights h2,
     .recent-projects h2 {
         font-size: 1.5rem;
+    }
+
+    .experience-item h3 {
+        font-size: 1.15rem;
     }
 
     .project-title {
@@ -160,26 +603,90 @@ body {
     .project-description {
         font-size: 0.95rem;
     }
+
+    /* Page layouts on tablet */
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .experience-date {
+        white-space: normal;
+    }
+
+    .experience-detail h2,
+    .activity-detail h2 {
+        font-size: 1.25rem;
+    }
+
+    .project-detail h2 {
+        font-size: 1.35rem;
+    }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
-
     .container {
-        padding: 15px 10px;
+        padding: 30px 15px;
     }
 
-    .about-me {
-        margin-bottom: 50px;
+    .profile-image {
+        width: 100px;
+        height: 100px;
     }
 
-    .about-me h1 {
+    .profile-section h1 {
         font-size: 1.75rem;
     }
 
+    .profile-section .intro {
+        font-size: 0.95rem;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .experience-highlights h2,
     .recent-projects h2 {
         font-size: 1.25rem;
+    }
+
+    .experience-grid {
+        gap: 25px;
+    }
+
+    /* Page layouts on mobile */
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .page-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .experience-detail h2,
+    .activity-detail h2 {
+        font-size: 1.15rem;
+    }
+
+    .project-detail h2 {
+        font-size: 1.25rem;
+    }
+
+    .contact-method h2 {
+        font-size: 1.1rem;
     }
 }

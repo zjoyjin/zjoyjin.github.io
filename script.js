@@ -68,14 +68,45 @@ dots.forEach((dot, index) => {
     });
 });
 
-// Start automatic rotation when page loads
-startRotation();
+// Start automatic rotation when page loads (only if on homepage with carousel)
+if (projects.length > 0) {
+    startRotation();
+}
 
 // Optional: Pause rotation when user hovers over the project area
 const projectCarousel = document.querySelector('.project-carousel');
 
-projectCarousel.addEventListener('mouseenter', stopRotation);
-projectCarousel.addEventListener('mouseleave', startRotation);
+if (projectCarousel) {
+    projectCarousel.addEventListener('mouseenter', stopRotation);
+    projectCarousel.addEventListener('mouseleave', startRotation);
+}
+
+/**
+ * Mobile Navigation Toggle
+ */
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!navToggle.contains(event.target) && !navMenu.contains(event.target)) {
+            navMenu.classList.remove('active');
+        }
+    });
+
+    // Close menu when clicking a link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+}
 
 /**
  * INSTRUCTIONS FOR MODIFYING PROJECTS:

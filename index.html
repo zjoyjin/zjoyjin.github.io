@@ -3,15 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joyee Jin</title>
+    <title>Joyee Jin - Software Developer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Joyee Jin</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="activities.html" class="nav-link">Activities</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <main class="container">
-        <!-- About Me Section -->
-        <section class="about-me">
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <!-- REPLACE THIS IMAGE: Update the src attribute with your actual photo URL or path -->
+            <!-- For now, using a neutral gray placeholder circle -->
+            <div class="profile-image-container">
+                <img src="https://via.placeholder.com/150/e0e0e0/808080?text=JJ" alt="Joyee Jin" class="profile-image">
+            </div>
             <h1>Joyee Jin</h1>
             <p class="intro">I'm a Computer Science student at the University of Toronto specializing in Computational Cognitive Science and Mathematics. I build full-stack applications and ML systems that solve real problems, from depression detection tools used in research to web platforms serving thousands of students and cadets. Currently working on ML pipelines and database optimization at UofT while exploring human-computer interaction.</p>
+
+            <!-- Contact Links -->
+            <div class="contact-links">
+                <!-- REPLACE URLS: Update these links with your actual contact information -->
+                <a href="https://www.linkedin.com/in/joyee-jin-bbb115285/" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+                <span class="separator">•</span>
+                <a href="mailto:joyeejin0509@gmail.com" class="contact-link">Email</a>
+                <span class="separator">•</span>
+                <!-- REPLACE WITH YOUR GOOGLE CALENDAR LINK: Get this from Google Calendar > Settings > Appointment schedules -->
+                <a href="https://calendar.google.com/calendar" target="_blank" rel="noopener noreferrer" class="contact-link">Book a Coffee Chat</a>
+            </div>
+        </section>
+
+        <!-- Experience Highlights Section -->
+        <section class="experience-highlights">
+            <h2>What I'm Doing</h2>
+            <div class="experience-grid">
+                <div class="experience-item">
+                    <h3>Software Developer</h3>
+                    <p class="org-name">University of Toronto, IDELA Lab</p>
+                    <p class="experience-description">Building ML and database features for APLUS, used by 1000+ students, improving data speed by 30%.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Full-Stack Research Assistant</h3>
+                    <p class="org-name">Stanford University</p>
+                    <p class="experience-description">Built ML models for social media depression detection, reaching 82% accuracy, and deployed interactive HCI prototypes.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>IT Officer</h3>
+                    <p class="org-name">Department of National Defence</p>
+                    <p class="experience-description">Designed and maintained web systems for 200+ cadets/staff, automating workflows with Azure cloud tools.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Recent Projects Section -->

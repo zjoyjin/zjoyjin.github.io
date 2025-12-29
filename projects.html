@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Joyee Jin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Joyee Jin</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="activities.html" class="nav-link">Activities</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="page-header">
+            <h1>Projects</h1>
+            <p class="page-subtitle">Tools and systems I've built to solve real-world problems.</p>
+        </section>
+
+        <section class="projects-list">
+            <!-- Paper Reference System -->
+            <article class="project-detail">
+                <h2>Paper Reference System</h2>
+                <p class="project-description-full">
+                    An academic writing tool designed to streamline literature reviews for researchers and students.
+                    The system uses semantic search and natural language processing to summarize academic articles
+                    and help users quickly find relevant references, significantly reducing research time.
+                </p>
+                <p class="tech-stack"><strong>Tech Stack:</strong> Python, ML (semantic search), NLP</p>
+                <a href="https://github.com/Paper-Reference-System" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
+            </article>
+
+            <!-- Airline Planning System -->
+            <article class="project-detail">
+                <h2>Airline Planning System</h2>
+                <p class="project-description-full">
+                    A flight planning application that uses real Google Flights data to help users create custom
+                    itineraries. Features optimized search algorithms built with Pandas and NumPy for efficient
+                    flight comparison and route planning.
+                </p>
+                <p class="tech-stack"><strong>Tech Stack:</strong> Python, Pandas, NumPy</p>
+                <a href="https://github.com/airline-RS" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
+            </article>
+
+            <!-- Hearing Disability Assistant -->
+            <article class="project-detail">
+                <h2>Hearing Disability Assistant</h2>
+                <p class="project-description-full">
+                    An Arduino-based wearable device designed to assist individuals with hearing disabilities.
+                    The system detects critical environmental sounds like alarms, doorbells, and knocks, then
+                    logs alerts to a companion web application for real-time notifications.
+                </p>
+                <p class="tech-stack"><strong>Tech Stack:</strong> Arduino, Web Development, Hardware Integration</p>
+                <a href="https://github.com/HOI" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
+            </article>
+
+            <!-- Social Media Depression Detection -->
+            <article class="project-detail">
+                <h2>Social Media Depression Detection</h2>
+                <p class="project-description-full">
+                    A research project conducted at Stanford University focusing on human-computer interaction in AI.
+                    Built machine learning models using RoBERTa and Decision Trees to detect depression signals in
+                    social media content, achieving 82% accuracy. Deployed interactive prototypes using Next.js and
+                    Vercel with integrated ML backends.
+                </p>
+                <p class="tech-stack"><strong>Tech Stack:</strong> Python, RoBERTa, PyTorch, Next.js, Vercel</p>
+                <p class="project-status">Research Project - Stanford University</p>
+            </article>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
