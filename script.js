@@ -109,6 +109,59 @@ if (navToggle && navMenu) {
 }
 
 /**
+ * Experience Page Sidebar Navigation
+ * Updates active state based on scroll position
+ */
+const sidebarLinks = document.querySelectorAll('.sidebar-link');
+const sections = document.querySelectorAll('.section-divider');
+
+if (sidebarLinks.length > 0 && sections.length > 0) {
+    function updateActiveLink() {
+        let currentSection = '';
+
+        // Find which section is currently in view
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 150; // Offset for sticky nav
+
+            if (window.scrollY >= sectionTop) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        // Update active class on sidebar links
+        sidebarLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Update on scroll
+    window.addEventListener('scroll', updateActiveLink);
+
+    // Update on page load
+    updateActiveLink();
+
+    // Smooth scroll when clicking sidebar links
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 100;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+/**
  * INSTRUCTIONS FOR MODIFYING PROJECTS:
  *
  * 1. TO CHANGE ROTATION SPEED:
