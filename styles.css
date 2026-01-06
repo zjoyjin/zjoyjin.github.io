@@ -1673,9 +1673,17 @@ a {
  * ANIMATION PREPARATION STATES
  * Elements with data-animate attribute start invisible
  * JavaScript will animate them in when they scroll into view
+ *
+ * EXCEPTION: Gallery photos default to visible for progressive enhancement
  */
-[data-animate] {
+[data-animate]:not(.gallery-photo) {
     opacity: 0;
+}
+
+/* Gallery photos: Always visible by default, animations enhance when JS loads */
+.gallery-photo[data-animate] {
+    opacity: 1 !important;
+    transform: scale(1) !important;
 }
 
 /* Fallback: Show content if JavaScript doesn't load */
