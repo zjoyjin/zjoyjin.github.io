@@ -1470,8 +1470,10 @@ body {
 
 /*
  * Personal photo gallery that appears before Research Highlights
- * Displays moments/memories in a single horizontal row
- * Small square tiles (120px) with horizontal scroll
+ * Dense honeycomb/mosaic grid of small square tiles
+ * Mobile: 4 columns, Tablet: 6 columns, Desktop: 8 columns
+ * Minimal gaps (6-8px) for Instagram-style micro grid
+ * Tiles are 1:1 aspect ratio, responsive sizing
  * Subtle animations and hover effects
  */
 
@@ -1491,59 +1493,52 @@ body {
     opacity: 0.8;
 }
 
-/* Photo Grid Container - Single Row, Horizontal Scroll */
+/* Photo Grid Container - Dense CSS Grid */
 .photo-grid {
-    display: flex;
-    gap: 12px;
+    display: grid;
+    gap: 6px;
     max-width: 900px;
     margin: 0 auto;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 8px;
 
-    /* Hide scrollbar but keep functionality */
-    scrollbar-width: thin;
-    scrollbar-color: rgba(139, 122, 158, 0.2) transparent;
+    /* Mobile: 4 columns of small tiles */
+    grid-template-columns: repeat(4, 1fr);
 }
 
-/* Webkit scrollbar styling */
-.photo-grid::-webkit-scrollbar {
-    height: 6px;
+/* Tablet: 6 columns */
+@media (min-width: 640px) {
+    .photo-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 8px;
+    }
 }
 
-.photo-grid::-webkit-scrollbar-track {
-    background: transparent;
+/* Desktop: 8 columns for dense honeycomb feel */
+@media (min-width: 900px) {
+    .photo-grid {
+        grid-template-columns: repeat(8, 1fr);
+        gap: 8px;
+    }
 }
 
-.photo-grid::-webkit-scrollbar-thumb {
-    background: rgba(139, 122, 158, 0.2);
-    border-radius: 3px;
-}
-
-.photo-grid::-webkit-scrollbar-thumb:hover {
-    background: rgba(139, 122, 158, 0.3);
-}
-
-/* Individual Photo Tile - Small Size */
+/* Individual Photo Tile - Small Square */
 .gallery-photo {
     position: relative;
-    flex-shrink: 0;
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 4px;
     background-color: #f8f9fa;
 
-    /* Subtle shadow and border */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(139, 122, 158, 0.1);
+    /* Minimal shadow and border */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(139, 122, 158, 0.08);
 
     /* Smooth transitions */
     transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 
-    /* Initial state for animation (will be overridden by JS) */
-    opacity: 0;
-    transform: scale(0.95);
+    /* FIX: Default to visible - animation will override if JS loads */
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* Photo tile hover effect - Subtle for small tiles */
@@ -1586,29 +1581,28 @@ body {
  * CUSTOMIZATION GUIDE FOR PHOTO GALLERY
  * ═══════════════════════════════════════
  *
- * CHANGE PHOTO SIZE:
- * - Edit "width: 120px; height: 120px" (try 100px for smaller, 150px for larger)
+ * CHANGE NUMBER OF COLUMNS:
+ * - Mobile: "repeat(4, 1fr)" - try 3 or 5
+ * - Tablet: "repeat(6, 1fr)" - try 5 or 7
+ * - Desktop: "repeat(8, 1fr)" - try 6, 10, or 12
  *
  * CHANGE SPACING BETWEEN PHOTOS:
- * - Edit "gap: 12px" (try 8px for tighter, 16px for more space)
+ * - Edit "gap: 6px" for mobile, "gap: 8px" for desktop
+ * - Try: 4px (tighter), 10px (more space)
  *
  * CHANGE BORDER RADIUS:
- * - Edit "border-radius: 8px" (try 6px for sharper, 12px for rounder)
+ * - Edit "border-radius: 4px" (try 2px for sharper, 6px for rounder)
  *
  * CHANGE SHADOW INTENSITY:
- * - Edit box-shadow opacity (currently 0.06 for subtle)
- * - Increase to 0.10 for more pronounced shadow
+ * - Edit box-shadow opacity (currently 0.08 for subtle)
+ * - Increase to 0.12 for more pronounced shadow
  *
  * REMOVE HOVER EFFECTS:
  * - Delete or comment out .gallery-photo:hover rules
  *
- * HIDE SCROLLBAR COMPLETELY:
- * - Add to .photo-grid: scrollbar-width: none;
- * - Add to .photo-grid: .photo-grid::-webkit-scrollbar { display: none; }
- *
  * CHANGE ACCENT BORDER COLOR:
- * - Edit "rgba(139, 122, 158, 0.1)" to adjust border color
- * - Increase 0.1 to 0.2 for more visible border
+ * - Edit "rgba(139, 122, 158, 0.08)" to adjust border color
+ * - Increase 0.08 to 0.15 for more visible border
  */
 
 /* ========================================
