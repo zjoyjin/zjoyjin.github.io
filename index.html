@@ -5,8 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joyee Jin - Software Developer</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Tailwind CSS: Utility-first CSS framework (CDN for development) -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Motion One: High-performance animations library (12kb) -->
     <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+    <!-- Tailwind Configuration: Extend with custom accent color -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: {
+                            DEFAULT: '#8b7a9e',
+                            light: '#b8aec4',
+                            'very-light': '#e8e4ec'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="intro-active">
     <!-- Intro Overlay Experience -->
@@ -111,6 +129,127 @@
                 <span class="separator">•</span>
                 <!-- REPLACE WITH YOUR GOOGLE CALENDAR LINK: Get this from Google Calendar > Settings > Appointment schedules -->
                 <a href="https://calendar.google.com/calendar" target="_blank" rel="noopener noreferrer" class="contact-link">Book a Coffee Chat</a>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             PHOTO GALLERY - Moments & Memories
+             ═══════════════════════════════════════════════════════════════
+
+             HOW TO ADD/REMOVE PHOTOS:
+             1. Add your photos to /images/gallery/ folder
+             2. Copy a <div class="gallery-photo"> block below
+             3. Update the src="images/gallery/YOUR-PHOTO.jpg"
+             4. Update the alt text to describe the photo
+
+             RECOMMENDED IMAGE SPECS:
+             - Size: 800x800px (square)
+             - Format: JPG or PNG
+             - File size: Under 500KB
+             - Aspect ratio: 1:1 (square)
+
+             The gallery will auto-arrange in a responsive grid:
+             - Mobile: 2 columns
+             - Tablet: 3 columns
+             - Desktop: 4 columns
+             ═══════════════════════════════════════════════════════════════ -->
+        <section class="photo-gallery-section">
+            <!-- Optional: Add a subtle heading -->
+            <h2 class="gallery-heading" data-animate="fade-up">Moments</h2>
+
+            <!-- Photo Grid Container -->
+            <div class="photo-grid">
+
+                <!-- PHOTO 1: Replace with your own -->
+                <!-- data-animate-delay increases for staggered effect -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0">
+                    <img
+                        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=800&fit=crop"
+                        alt="Mountain landscape - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 2 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.05">
+                    <img
+                        src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=800&fit=crop"
+                        alt="Coffee moment - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 3 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.1">
+                    <img
+                        src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&h=800&fit=crop"
+                        alt="City view - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 4 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.15">
+                    <img
+                        src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=800&fit=crop"
+                        alt="Nature scene - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 5 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.2">
+                    <img
+                        src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=800&fit=crop"
+                        alt="Adventure - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 6 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.25">
+                    <img
+                        src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=800&h=800&fit=crop"
+                        alt="Study space - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 7 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.3">
+                    <img
+                        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=800&fit=crop&sat=-100"
+                        alt="Creative moment - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 8 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.35">
+                    <img
+                        src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=800&fit=crop"
+                        alt="Tech & innovation - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!--
+                TO ADD MORE PHOTOS:
+                Copy the block above and paste below, then:
+                1. Increment the data-animate-delay (next would be 0.4)
+                2. Change the src to your image path
+                3. Update the alt text
+
+                Example:
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.4">
+                    <img
+                        src="images/gallery/my-photo.jpg"
+                        alt="Description of my photo"
+                        loading="lazy"
+                    />
+                </div>
+                -->
+
             </div>
         </section>
 

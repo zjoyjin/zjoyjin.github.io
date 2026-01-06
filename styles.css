@@ -1465,6 +1465,143 @@ body {
  */
 
 /* ========================================
+   PHOTO GALLERY
+   ======================================== */
+
+/*
+ * Personal photo gallery that appears before Research Highlights
+ * Displays moments/memories in a clean, elegant grid
+ * Mobile: 2 columns, Tablet: 3 columns, Desktop: 4 columns
+ */
+
+.photo-gallery-section {
+    margin-bottom: 100px;
+    padding-top: 20px;
+}
+
+/* Optional heading for the gallery */
+.gallery-heading {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+/* Photo Grid Container - Responsive Grid */
+.photo-grid {
+    display: grid;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+
+    /* Mobile: 2 columns */
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Tablet: 3 columns */
+@media (min-width: 640px) {
+    .photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Desktop: 4 columns */
+@media (min-width: 900px) {
+    .photo-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Individual Photo Tile */
+.gallery-photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #f8f9fa;
+
+    /* Subtle shadow and border */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(139, 122, 158, 0.1);
+
+    /* Smooth transitions */
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+    /* Initial state for animation (will be overridden by JS) */
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+/* Photo tile hover effect */
+.gallery-photo:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(139, 122, 158, 0.15);
+}
+
+/* Image styling */
+.gallery-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* Subtle zoom on image hover */
+.gallery-photo:hover img {
+    transform: scale(1.05);
+}
+
+/* Loading state */
+.gallery-photo img[loading="lazy"] {
+    background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/*
+ * CUSTOMIZATION GUIDE FOR PHOTO GALLERY
+ * ═══════════════════════════════════════
+ *
+ * CHANGE GRID COLUMNS:
+ * - Edit grid-template-columns values above
+ * - Example: "repeat(3, 1fr)" for 3 columns on desktop
+ *
+ * CHANGE SPACING:
+ * - Edit "gap" values (currently 16px mobile, 20px desktop)
+ * - Larger gap = more spacing between photos
+ *
+ * CHANGE BORDER RADIUS:
+ * - Edit "border-radius: 12px" (try 8px for sharper, 16px for rounder)
+ *
+ * CHANGE SHADOW INTENSITY:
+ * - Edit box-shadow opacity (currently 0.06 for subtle)
+ * - Increase to 0.12 for more pronounced shadow
+ *
+ * REMOVE HOVER EFFECTS:
+ * - Delete or comment out .gallery-photo:hover rules
+ *
+ * CHANGE ACCENT BORDER COLOR:
+ * - Edit "rgba(139, 122, 158, 0.1)" to adjust border color
+ * - Increase 0.1 to 0.2 for more visible border
+ */
+
+/* ========================================
    ANIMATION ENHANCEMENTS
    ======================================== */
 
