@@ -1463,3 +1463,82 @@ body {
  * "If you notice the decoration before the content,
  *  reduce the opacity or remove it."
  */
+
+/* ========================================
+   ANIMATION ENHANCEMENTS
+   ======================================== */
+
+/*
+ * HOVER LIFT EFFECT
+ * Subtle upward movement on hover for interactive cards
+ * Applied by animations.js to cards and interactive elements
+ * To disable: Remove the hover-lift class assignment in animations.js
+ */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1),
+                box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+/* Enhanced hover for experience and highlight items */
+.experience-item.hover-lift:hover {
+    box-shadow: 0 8px 24px rgba(139, 122, 158, 0.12);
+}
+
+.highlight-item.hover-lift:hover {
+    box-shadow: 0 8px 24px rgba(139, 122, 158, 0.08);
+}
+
+/*
+ * SMOOTH LINK TRANSITIONS
+ * Enhanced micro-interactions for all links
+ */
+a {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-link,
+.contact-link-large,
+.project-link {
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/*
+ * ACCESSIBILITY: RESPECT REDUCED MOTION PREFERENCE
+ * If user has enabled "Reduce Motion" in their OS settings,
+ * disable all animations for accessibility
+ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Remove hover transforms for reduced motion users */
+    .hover-lift:hover {
+        transform: none;
+    }
+}
+
+/*
+ * ANIMATION PREPARATION STATES
+ * Elements with data-animate attribute start invisible
+ * JavaScript will animate them in when they scroll into view
+ */
+[data-animate] {
+    opacity: 0;
+}
+
+/* Fallback: Show content if JavaScript doesn't load */
+.no-js [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+}

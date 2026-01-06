@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joyee Jin - Software Developer</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Motion One: High-performance animations library (12kb) -->
+    <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
 </head>
 <body class="intro-active">
     <!-- Intro Overlay Experience -->
@@ -97,8 +99,8 @@
             <div class="profile-image-container">
                 <img src="images/profile.jpg" alt="Joyee Jin" class="profile-image">
             </div>
-            <h1>Joyee Jin</h1>
-            <p class="intro">I'm a Computer Science student at the University of Toronto specializing in Computational Cognitive Science and Mathematics. I build full-stack applications and ML systems that solve real problems, from depression detection tools used in research to web platforms serving thousands of students and cadets. Currently working on ML pipelines and database optimization at UofT while exploring human-computer interaction.</p>
+            <h1 data-animate="fade-up">Joyee Jin</h1>
+            <p class="intro" data-animate="fade-up" data-animate-delay="0.1">I'm a Computer Science student at the University of Toronto specializing in Computational Cognitive Science and Mathematics. I build full-stack applications and ML systems that solve real problems, from depression detection tools used in research to web platforms serving thousands of students and cadets. Currently working on ML pipelines and database optimization at UofT while exploring human-computer interaction.</p>
 
             <!-- Contact Links -->
             <div class="contact-links">
@@ -113,18 +115,18 @@
         </section>
 
         <!-- Research Highlights Section -->
-        <section class="research-highlights">
+        <section class="research-highlights" data-animate="fade-up">
             <h2>Research Highlights</h2>
             <div class="highlights-bar">
-                <div class="highlight-item">
+                <div class="highlight-item" data-animate="fade-up" data-animate-delay="0.1">
                     <h3>3 Publications</h3>
                     <p>AAAI 2026, CSS Americas 2025, SPSP</p>
                 </div>
-                <div class="highlight-item">
+                <div class="highlight-item" data-animate="fade-up" data-animate-delay="0.2">
                     <h3>AI & HCI</h3>
                     <p>Depression detection from social media using multimodal ML</p>
                 </div>
-                <div class="highlight-item">
+                <div class="highlight-item" data-animate="fade-up" data-animate-delay="0.3">
                     <h3>Educational AI</h3>
                     <p>Predictive models for adaptive learning systems</p>
                 </div>
@@ -132,20 +134,20 @@
         </section>
 
         <!-- Experience Highlights Section -->
-        <section class="experience-highlights">
+        <section class="experience-highlights" data-animate="fade-up">
             <h2>What I'm Doing</h2>
             <div class="experience-grid">
-                <div class="experience-item">
+                <div class="experience-item" data-animate="scale-in" data-animate-delay="0.1">
                     <h3>Software Developer</h3>
                     <p class="org-name">University of Toronto, IDELA Lab</p>
                     <p class="experience-description">Building ML and database features for APLUS, used by 1000+ students, improving data speed by 30%.</p>
                 </div>
-                <div class="experience-item">
+                <div class="experience-item" data-animate="scale-in" data-animate-delay="0.2">
                     <h3>Full-Stack Research Assistant</h3>
                     <p class="org-name">Stanford University</p>
                     <p class="experience-description">Built ML models for social media depression detection, reaching 82% accuracy, and deployed interactive HCI prototypes.</p>
                 </div>
-                <div class="experience-item">
+                <div class="experience-item" data-animate="scale-in" data-animate-delay="0.3">
                     <h3>IT Officer</h3>
                     <p class="org-name">Department of National Defence</p>
                     <p class="experience-description">Designed and maintained web systems for 200+ cadets/staff, automating workflows with Azure cloud tools.</p>
@@ -213,5 +215,7 @@
     <!-- End Main Content -->
 
     <script src="script.js"></script>
+    <!-- Animations: Subtle, scroll-triggered effects. Set ANIMATIONS_ENABLED = false in animations.js to disable -->
+    <script src="animations.js"></script>
 </body>
 </html>
