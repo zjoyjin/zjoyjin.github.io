@@ -1719,3 +1719,214 @@ a {
     opacity: 1 !important;
     transform: none !important;
 }
+
+/* ========================================
+   ACTIVITIES PAGE - IMAGE + TEXT LAYOUT
+   ======================================== */
+
+/* Activities Section */
+.activities-section {
+    margin-bottom: 100px;
+}
+
+/* Individual Activity Item - Side-by-Side Layout */
+.activity-item {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 80px;
+    padding: 30px;
+    border-radius: 12px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    background: #fafafa;
+    box-shadow: 0 4px 20px rgba(139, 122, 158, 0.08);
+}
+
+/* Image on Left - Default */
+.activity-item.image-left {
+    flex-direction: row;
+}
+
+/* Image on Right - Alternate Layout */
+.activity-item.image-right {
+    flex-direction: row-reverse;
+}
+
+/* Activity Image Container */
+.activity-image {
+    flex-shrink: 0;
+    width: 300px;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.activity-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.activity-item:hover .activity-image img {
+    transform: scale(1.05);
+}
+
+/* Activity Content */
+.activity-content {
+    flex: 1;
+}
+
+.activity-content h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #0a0a0a;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+}
+
+.activity-role {
+    font-size: 1rem;
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+}
+
+.activity-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #4a4a4a;
+}
+
+/* ========================================
+   HOBBIES SECTION - SMALL PHOTO GRID
+   ======================================== */
+
+.hobbies-section {
+    margin-bottom: 80px;
+    padding-top: 40px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.section-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #0a0a0a;
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: -0.4px;
+}
+
+/* Hobbies Grid */
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Individual Hobby Item */
+.hobby-item {
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.hobby-item:hover {
+    transform: translateY(-4px);
+}
+
+/* Hobby Image */
+.hobby-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(139, 122, 158, 0.1);
+}
+
+.hobby-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.hobby-item:hover .hobby-image img {
+    transform: scale(1.08);
+}
+
+/* Hobby Text */
+.hobby-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0a0a0a;
+    margin-bottom: 8px;
+}
+
+.hobby-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666666;
+}
+
+/* ========================================
+   RESPONSIVE: ACTIVITIES & HOBBIES
+   ======================================== */
+
+/* Tablet: 2 columns for hobbies */
+@media (max-width: 900px) {
+    .hobbies-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .activity-image {
+        width: 250px;
+        height: 167px;
+    }
+}
+
+/* Mobile: Stack vertically */
+@media (max-width: 768px) {
+    .activity-item {
+        flex-direction: column !important;
+        gap: 24px;
+        padding: 20px;
+        margin-bottom: 50px;
+    }
+
+    .activity-image {
+        width: 100%;
+        height: 220px;
+    }
+
+    .activity-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .hobbies-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .section-heading {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
+
+    .hobby-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .hobby-item p {
+        font-size: 0.9rem;
+    }
+}

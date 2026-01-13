@@ -28,35 +28,145 @@
     </nav>
 
     <main class="container">
-        <section class="page-header">
+        <!-- Page Header -->
+        <section class="page-header" data-animate="fade-up">
             <h1>Activities</h1>
-            <p class="page-subtitle">Beyond coding - leadership, community involvement, and personal interests.</p>
+            <p class="page-subtitle">Leadership, community involvement, and personal interests beyond coding.</p>
         </section>
 
-        <section class="activities-list">
-            <!-- Placeholder content - customize with your actual activities -->
-            <article class="activity-detail">
-                <h2>Add Your Activities Here</h2>
-                <p class="activity-description">
-                    This is a placeholder page for your extracurricular activities, leadership roles,
-                    volunteer work, clubs, organizations, or personal interests. Replace this content
-                    with your actual activities.
-                </p>
-                <p class="activity-date">Example: Sept 2023 – Present</p>
+        <!-- ═══════════════════════════════════════════════════════════════
+             ACTIVITIES SECTION - Image + Text Side-by-Side
+             ═══════════════════════════════════════════════════════════════
+
+             HOW TO ADD/EDIT ACTIVITIES:
+             1. Add activity photo to /images/activities/ folder
+             2. Copy an <article class="activity-item"> block
+             3. Update image src, alt text, and description
+             4. Swap .image-left / .image-right to alternate sides
+
+             LAYOUT:
+             - Desktop: Image on left/right, text on opposite side
+             - Mobile: Stacks vertically (image on top)
+             ═══════════════════════════════════════════════════════════════ -->
+        <section class="activities-section">
+
+            <!-- Activity 1: CSSU -->
+            <article class="activity-item image-left" data-animate="fade-up">
+                <div class="activity-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
+                        alt="CSSU - Computer Science Student Union"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="activity-content">
+                    <h2>CSSU – Computer Science Student Union</h2>
+                    <p class="activity-role">Marketing Position</p>
+                    <p class="activity-description">
+                        Leading marketing initiatives to promote CS events and engage the student community. Creating content, managing social media presence, and building connections across the department.
+                    </p>
+                </div>
             </article>
 
-            <!-- Example activity template - copy and modify as needed -->
-            <!--
-            <article class="activity-detail">
-                <h2>Activity or Organization Name</h2>
-                <p class="activity-description">
-                    Description of your role, contributions, and impact. What did you accomplish?
-                    What skills did you develop? How did you contribute to the community or organization?
-                </p>
-                <p class="activity-date">Month Year – Month Year</p>
+            <!-- Activity 2: UofTAI -->
+            <article class="activity-item image-right" data-animate="fade-up" data-animate-delay="0.1">
+                <div class="activity-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=400&fit=crop"
+                        alt="UofTAI - Marketing & Outreach"
+                        loading="lazy"
+                    />
+                </div>
+                <div class="activity-content">
+                    <h2>UofTAI</h2>
+                    <p class="activity-role">Marketing & Outreach</p>
+                    <p class="activity-description">
+                        Driving outreach and promotion for AI-focused events and workshops. Engaging students through strategic marketing campaigns and building a vibrant AI community on campus.
+                    </p>
+                </div>
             </article>
-            -->
+
+            <!-- TO ADD MORE ACTIVITIES:
+                 Copy one of the blocks above and paste here.
+                 Alternate between .image-left and .image-right for visual variety.
+                 Increment data-animate-delay (0.2, 0.3, etc.) -->
+
         </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             HOBBIES SECTION - Small Photo Grid + Descriptions
+             ═══════════════════════════════════════════════════════════════
+
+             HOW TO ADD/EDIT HOBBIES:
+             1. Add hobby photos to /images/hobbies/ folder
+             2. Update image sources below
+             3. Edit descriptions to match your interests
+
+             LAYOUT:
+             - Small grid of photos (3-4 columns)
+             - Short text descriptions below
+             ═══════════════════════════════════════════════════════════════ -->
+        <section class="hobbies-section" data-animate="fade-up" data-animate-delay="0.2">
+            <h2 class="section-heading">Hobbies & Interests</h2>
+
+            <!-- Hobbies Grid -->
+            <div class="hobbies-grid">
+
+                <!-- Hobby 1: Art -->
+                <div class="hobby-item" data-animate="scale-in" data-animate-delay="0.1">
+                    <div class="hobby-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400&h=400&fit=crop"
+                            alt="Art - Creative expression"
+                            loading="lazy"
+                        />
+                    </div>
+                    <h3>Art</h3>
+                    <p>Creating visual art for over 10 years, exploring different mediums and styles.</p>
+                </div>
+
+                <!-- Hobby 2: Sailing -->
+                <div class="hobby-item" data-animate="scale-in" data-animate-delay="0.15">
+                    <div class="hobby-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=400&fit=crop"
+                            alt="Sailing - On the water"
+                            loading="lazy"
+                        />
+                    </div>
+                    <h3>Sailing</h3>
+                    <p>Finding peace and challenge on the water, navigating wind and waves.</p>
+                </div>
+
+                <!-- Hobby 3: Skiing & Snowboarding -->
+                <div class="hobby-item" data-animate="scale-in" data-animate-delay="0.2">
+                    <div class="hobby-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop"
+                            alt="Skiing & Snowboarding - Winter sports"
+                            loading="lazy"
+                        />
+                    </div>
+                    <h3>Skiing & Snowboarding</h3>
+                    <p>Chasing powder and carving turns through mountain terrain.</p>
+                </div>
+
+                <!-- Hobby 4: Mountain Climbing -->
+                <div class="hobby-item" data-animate="scale-in" data-animate-delay="0.25">
+                    <div class="hobby-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop"
+                            alt="Mountain Climbing - Reaching summits"
+                            loading="lazy"
+                        />
+                    </div>
+                    <h3>Mountain Climbing</h3>
+                    <p>Pushing limits and reaching summits, one peak at a time.</p>
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
     <script src="script.js"></script>
