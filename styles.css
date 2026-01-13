@@ -1320,12 +1320,37 @@ body {
         flex-direction: column;
         gap: 20px;
         padding: 15px;
+        align-items: center; /* FIX: Center cards horizontally */
     }
 
     .intro-card {
-        width: 100%;
+        width: 90%; /* FIX: Use percentage instead of 100% */
         max-width: 320px;
         height: 340px;
+        margin: 0 auto; /* FIX: Ensure centering */
+        perspective: 1200px; /* FIX: Increase perspective for mobile */
+    }
+
+    /* FIX: Disable hover effects on mobile (touch screens) */
+    .intro-card:hover {
+        transform: none;
+    }
+
+    /* FIX: Ensure card-inner is centered during flip */
+    .card-inner {
+        transform-origin: center center; /* Explicit center origin */
+    }
+
+    /* FIX: Prevent overflow/clipping during flip animation on mobile */
+    .intro-overlay {
+        overflow-y: auto; /* Allow scrolling if cards exceed viewport */
+        overflow-x: hidden; /* Prevent horizontal overflow */
+    }
+
+    /* FIX: Reduce card front/back padding on mobile for better fit */
+    .card-front,
+    .card-back {
+        padding: 30px 20px;
     }
 
     .skip-intro-btn {
