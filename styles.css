@@ -1319,7 +1319,7 @@ body {
     .intro-cards-container {
         flex-direction: column;
         gap: 30px;
-        padding: 20px 15px;
+        padding: 70px 15px 20px 15px; /* Extra top padding for skip button */
         align-items: center;
         justify-content: flex-start;
     }
