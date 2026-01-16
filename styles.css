@@ -1328,10 +1328,16 @@ body {
         width: 100%;
         max-width: 380px; /* Larger max-width for comfortable reading */
         min-width: 280px; /* Prevent cards from being too narrow */
-        height: auto; /* Allow height to adjust to content */
-        min-height: 420px; /* Ensure enough space for content */
+        height: 480px; /* Fixed height to contain all content */
         margin: 0 auto;
         perspective: 1500px; /* Larger perspective for smoother flip */
+    }
+
+    /* Ensure card-inner fills the card completely */
+    .card-inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
     }
 
     /* FIX: Disable hover effects on mobile (touch screens) */
