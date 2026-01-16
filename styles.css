@@ -1368,6 +1368,8 @@ body {
         right: 20px;
         padding: 10px 18px;
         font-size: 0.9rem;
+        z-index: 10000; /* Ensure button stays above cards */
+        position: fixed; /* Make button stay visible when scrolling */
     }
 
     .card-front h2 {
