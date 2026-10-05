@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyee Jin - Software Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Tailwind CSS: Utility-first CSS framework (CDN for development) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Motion One: High-performance animations library (12kb) -->
+    <script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js"></script>
+    <!-- Tailwind Configuration: Extend with custom accent color -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: {
+                            DEFAULT: '#8b7a9e',
+                            light: '#b8aec4',
+                            'very-light': '#e8e4ec'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="intro-active">
+    <!-- Intro Overlay Experience -->
+    <!-- This overlay shows on first visit and can be customized below -->
+    <div id="intro-overlay" class="intro-overlay">
+        <!-- Skip Intro Button -->
+        <button id="skip-intro" class="skip-intro-btn">Skip intro →</button>
+
+        <!-- Card Container -->
+        <div class="intro-cards-container">
+            <!-- Card 1: Identity / Personality -->
+            <div class="intro-card" data-card="1">
+                <div class="card-inner">
+                    <!-- Front of Card -->
+                    <div class="card-front">
+                        <div class="card-icon">🧠</div>
+                        <h2>Who I Am</h2>
+                        <p class="card-hint">Click to explore</p>
+                    </div>
+                    <!-- Back of Card -->
+                    <div class="card-back">
+                        <h3>Computer Science meets Cognitive Science</h3>
+                        <p>I build AI systems that understand human behavior, combining machine learning with insights from psychology and neuroscience.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Featured Project -->
+            <div class="intro-card" data-card="2">
+                <div class="card-inner">
+                    <!-- Front of Card -->
+                    <div class="card-front">
+                        <div class="card-icon">🔬</div>
+                        <h2>What I Build</h2>
+                        <p class="card-hint">Click to explore</p>
+                    </div>
+                    <!-- Back of Card -->
+                    <div class="card-back">
+                        <h3>Depression Detection from Social Media</h3>
+                        <p>ML models (RoBERTa, Decision Trees) achieving 82% accuracy in detecting mental health signals. Deployed interactive prototypes for research at Stanford.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Experience Snapshot -->
+            <div class="intro-card" data-card="3">
+                <div class="card-inner">
+                    <!-- Front of Card -->
+                    <div class="card-front">
+                        <div class="card-icon">✨</div>
+                        <h2>Where I Work</h2>
+                        <p class="card-hint">Click to explore</p>
+                    </div>
+                    <!-- Back of Card -->
+                    <div class="card-back">
+                        <h3>Research × Industry</h3>
+                        <p>Building ML systems at UofT serving 1000+ students, conducting HCI research at Stanford, and developing web platforms for Canada's Department of National Defence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Website Content (blurred during intro) -->
+    <div id="main-content" class="main-content">
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Joyee Jin</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="activities.html" class="nav-link">Activities</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <!-- REPLACE PHOTO: Copy your photo to the 'images' folder and name it 'profile.jpg' (or .png) -->
+            <!-- Supported formats: .jpg, .jpeg, .png, .webp -->
+            <div class="profile-image-container">
+                <img src="images/profile.jpg" alt="Joyee Jin" class="profile-image">
+            </div>
+            <h1 data-animate="fade-up">Joyee Jin</h1>
+            <p class="intro" data-animate="fade-up" data-animate-delay="0.1">I'm a Computer Science student at the University of Toronto specializing in Computational Cognitive Science and Mathematics. I build full-stack applications and ML systems that solve real problems, from depression detection tools used in research to web platforms serving thousands of students and cadets. Currently working on ML pipelines and database optimization at UofT while exploring human-computer interaction.</p>
+
+            <!-- Contact Links -->
+            <div class="contact-links">
+                <!-- REPLACE URLS: Update these links with your actual contact information -->
+                <a href="https://www.linkedin.com/in/joyee-jin-bbb115285/" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+                <span class="separator">•</span>
+                <a href="mailto:joyeejin0509@gmail.com" class="contact-link">Email</a>
+                <span class="separator">•</span>
+                <!-- REPLACE WITH YOUR GOOGLE CALENDAR LINK: Get this from Google Calendar > Settings > Appointment schedules -->
+                <a href="https://calendar.google.com/calendar" target="_blank" rel="noopener noreferrer" class="contact-link">Book a Coffee Chat</a>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════
+             PHOTO GALLERY - Dense Honeycomb Grid
+             ═══════════════════════════════════════════════════════════════
+
+             HOW TO ADD/REMOVE PHOTOS:
+             1. Add your photos to /images/gallery/ folder
+             2. Copy a <div class="gallery-photo"> block below
+             3. Update the src="images/gallery/YOUR-PHOTO.jpg"
+             4. Update the alt text to describe the photo
+
+             RECOMMENDED IMAGE SPECS:
+             - Size: 300x300px to 400x400px (square)
+             - Format: JPG or PNG
+             - File size: Under 150KB (compressed)
+             - Aspect ratio: 1:1 (square) - REQUIRED
+
+             GRID LAYOUT:
+             - Mobile: 4 columns (tight grid)
+             - Tablet: 6 columns
+             - Desktop: 8 columns (dense honeycomb/mosaic)
+             - Minimal gaps (6-8px) for Instagram-style feel
+             - Staggered animation (tiles appear sequentially)
+             ═══════════════════════════════════════════════════════════════ -->
+        <section class="photo-gallery-section">
+            <!-- Optional: Add a subtle heading -->
+            <h2 class="gallery-heading" data-animate="fade-up">Moments</h2>
+
+            <!-- Photo Grid Container -->
+            <div class="photo-grid">
+
+                <!-- PHOTO 1: Replace with your own -->
+                <!-- data-animate-delay increases for staggered effect -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0">
+                    <img
+                        src="images/gallery/fly.png"
+                        alt="Mountain landscape - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 2 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.05">
+                    <img
+                        src="images/gallery/army.png"
+                        alt="Coffee moment - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 3 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.1">
+                    <img
+                        src="images/gallery/cherry.jpeg"
+                        alt="City view - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 4 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.15">
+                    <img
+                        src="images/gallery/stanford.jpeg"
+                        alt="Nature scene - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 5 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.2">
+                    <img
+                        src="images/gallery/snowboard.jpeg"
+                        alt="Adventure - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 6 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.25">
+                    <img
+                        src="images/gallery/survival.jpeg"
+                        alt="Study space - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 7 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.3">
+                    <img
+                        src="images/gallery/hiking.jpeg"
+                        alt="Creative moment - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!-- PHOTO 8 -->
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.35">
+                    <img
+                        src="images/gallery/sailing.jpeg"
+                        alt="Tech & innovation - Replace with your photo"
+                        loading="lazy"
+                    />
+                </div>
+
+                <!--
+                TO ADD MORE PHOTOS:
+                Copy the block above and paste below, then:
+                1. Increment the data-animate-delay (next would be 0.4)
+                2. Change the src to your image path
+                3. Update the alt text
+
+                Example:
+                <div class="gallery-photo" data-animate="scale-in" data-animate-delay="0.4">
+                    <img
+                        src="images/gallery/my-photo.jpg"
+                        alt="Description of my photo"
+                        loading="lazy"
+                    />
+                </div>
+                -->
+
+            </div>
+        </section>
+
+        <!-- Research Highlights Section -->
+        <section class="research-highlights" data-animate="fade-up">
+            <h2>Research Highlights</h2>
+            <div class="highlights-bar">
+                <div class="highlight-item" data-animate="fade-up" data-animate-delay="0.1">
+                    <h3>3 Publications</h3>
+                    <p>AAAI 2026, CSS Americas 2025, SPSP</p>
+                </div>
+                <div class="highlight-item" data-animate="fade-up" data-animate-delay="0.2">
+                    <h3>AI & HCI</h3>
+                    <p>Depression detection from social media using multimodal ML</p>
+                </div>
+                <div class="highlight-item" data-animate="fade-up" data-animate-delay="0.3">
+                    <h3>Educational AI</h3>
+                    <p>Predictive models for adaptive learning systems</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Highlights Section -->
+        <section class="experience-highlights" data-animate="fade-up">
+            <h2>What I'm Doing</h2>
+            <div class="experience-grid">
+                <div class="experience-item" data-animate="scale-in" data-animate-delay="0.1">
+                    <h3>Software Developer</h3>
+                    <p class="org-name">University of Toronto, IDELA Lab</p>
+                    <p class="experience-description">Building ML and database features for APLUS, used by 1000+ students, improving data speed by 30%.</p>
+                </div>
+                <div class="experience-item" data-animate="scale-in" data-animate-delay="0.2">
+                    <h3>Full-Stack Research Assistant</h3>
+                    <p class="org-name">Stanford University</p>
+                    <p class="experience-description">Built ML models for social media depression detection, reaching 82% accuracy, and deployed interactive HCI prototypes.</p>
+                </div>
+                <div class="experience-item" data-animate="scale-in" data-animate-delay="0.3">
+                    <h3>IT Officer</h3>
+                    <p class="org-name">Department of National Defence</p>
+                    <p class="experience-description">Designed and maintained web systems for 200+ cadets/staff, automating workflows with Azure cloud tools.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Projects Section -->
+        <section class="recent-projects">
+            <h2>Recent Projects</h2>
+
+            <div class="project-carousel">
+                <!-- Projects will rotate automatically via JavaScript -->
+                <!-- The first project with class 'active' will be shown initially -->
+
+                <!-- Project 1: Paper Reference System -->
+                <div class="project active" data-project="0">
+                    <h3 class="project-title">Paper Reference System</h3>
+                    <p class="project-description">Academic writing tool with article summarization and semantic search, reducing literature review time.</p>
+                    <p class="project-tech"><strong>Tech:</strong> Python, ML (semantic search), NLP</p>
+                    <a href="https://github.com/Paper-Reference-System" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+                </div>
+
+                <!-- Project 2: Hearing Disability Assistant -->
+                <div class="project" data-project="1">
+                    <h3 class="project-title">Hearing Disability Assistant</h3>
+                    <p class="project-description">Arduino-based wearable that detects critical sounds (alarms, knocks) and logs alerts to a companion web app.</p>
+                    <p class="project-tech"><strong>Tech:</strong> Arduino, Web Development, Hardware Integration</p>
+                    <a href="https://github.com/HOI" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
+                </div>
+
+                <!-- Project 3: Stanford HCI Research -->
+                <div class="project" data-project="2">
+                    <h3 class="project-title">Social Media Depression Detection</h3>
+                    <p class="project-description">ML models (RoBERTa, Decision Trees) for detecting depression signals in social media, achieving 82% accuracy.</p>
+                    <p class="project-tech"><strong>Tech:</strong> Python, RoBERTa, PyTorch, Next.js, Vercel</p>
+                    <a href="#" class="project-link">Research Project</a>
+                </div>
+
+                <!--
+                    TO ADD A NEW PROJECT:
+                    1. Copy one of the project divs above
+                    2. Remove the 'active' class
+                    3. Update data-project to the next number (e.g., data-project="3")
+                    4. Update the title, description, tech stack, and link
+                    5. The JavaScript will automatically include it in rotation
+
+                    TO REMOVE A PROJECT:
+                    1. Delete the entire <div class="project"> block
+                    2. Update data-project numbers to be sequential (0, 1, 2, etc.)
+                -->
+            </div>
+
+            <!-- Navigation Dots (optional visual indicator) -->
+            <div class="carousel-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <!-- Add more dots if you add more projects -->
+            </div>
+        </section>
+    </main>
+
+    </div>
+    <!-- End Main Content -->
+
+    <script src="script.js"></script>
+    <!-- Animations: Subtle, scroll-triggered effects. Set ANIMATIONS_ENABLED = false in animations.js to disable -->
+    <script src="animations.js"></script>
+</body>
+</html>
