@@ -39,7 +39,7 @@
     --accent-very-light: #e8e4ec;
 }
 
-/* Quote stays visible for three seconds, then the plane reveals the homepage. */
+/* Quote stays visible for five seconds, then the plane reveals the homepage. */
 .welcome-screen {
     position: fixed;
     inset: 0;
@@ -48,7 +48,7 @@
     place-items: center;
     padding: 28px;
     background: #faf9fc;
-    animation: welcome-reveal 1.2s ease-in-out 3s forwards;
+    animation: welcome-reveal 1.8s ease-in-out 5s forwards;
 }
 
 .welcome-quote {
@@ -80,7 +80,7 @@
     height: 64px;
     color: var(--accent-color);
     pointer-events: none;
-    animation: welcome-flight 1.2s ease-in-out 3s forwards;
+    animation: welcome-flight 1.8s ease-in-out 5s forwards;
 }
 
 .welcome-airplane svg {
@@ -101,7 +101,7 @@
 
 @media (prefers-reduced-motion: reduce) {
     .welcome-airplane { display: none; }
-    .welcome-screen { animation: welcome-fade 0.2s linear 3s forwards; }
+    .welcome-screen { animation: welcome-fade 0.2s linear 5s forwards; }
 }
 
 @keyframes welcome-fade {
@@ -534,6 +534,35 @@ body {
 }
 
 /* Contact Links */
+.home-explore-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-bottom: 22px;
+}
+
+.home-research-highlight {
+    padding: 24px 28px;
+    border: 1px solid var(--accent-very-light);
+    border-radius: 16px;
+    background: #faf9fc;
+}
+
+.home-research-highlight h3 {
+    font-size: 1.4rem;
+    margin: 10px 0;
+}
+
+.home-research-highlight > p:not(.project-status) {
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+    .home-explore-links { justify-content: center; }
+}
+
 .contact-links {
     display: flex;
     justify-content: center;

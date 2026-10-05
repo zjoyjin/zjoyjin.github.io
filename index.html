@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joyee Jin - Software Developer</title>
-    <link rel="stylesheet" href="styles.css?v=quote-intro-1">
+    <link rel="stylesheet" href="styles.css?v=home-summary-1">
     <!-- Tailwind CSS: Utility-first CSS framework (CDN for development) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Motion One: High-performance animations library (12kb) -->
@@ -133,8 +133,13 @@
             <h1 data-animate="fade-up">Joyee Jin</h1>
             <p class="intro" data-animate="fade-up" data-animate-delay="0.1">Hi, welcome to my home page!</p>
             <p class="intro" data-animate="fade-up" data-animate-delay="0.1">I'm Joyee, a student at the University of Toronto double majoring in Computer Science and Computational Cognitive Science, with a minor in Mathematics. I love building things with software and machine learning, especially when they can solve interesting real-world problems.</p>
-            <p class="intro" data-animate="fade-up" data-animate-delay="0.1">I'm currently interning at Huawei Technologies, where I work on machine learning and reinforcement learning for wireless network optimization. Before that, I've worked on AI, software engineering, and research projects across different areas, from human-AI interaction to educational technology.</p>
+            <p class="intro" data-animate="fade-up" data-animate-delay="0.1"><strong>Currently:</strong> ML Research Intern at Huawei · Optimization and Control Theory Lab.</p>
             <p class="intro" data-animate="fade-up" data-animate-delay="0.1">Outside of school and work, I love skiing and snowboarding, sailing, painting, and playing Nintendo Switch games.</p>
+
+            <div class="home-explore-links">
+                <a href="experience.html" class="contact-link">Explore my experience →</a>
+                <a href="projects.html" class="contact-link">See my projects &amp; publications →</a>
+            </div>
 
             <!-- Contact Links -->
             <div class="contact-links">
@@ -272,105 +277,15 @@
             </div>
         </section>
 
-        <!-- Research Highlights Section -->
+        <!-- Featured research directs visitors to the full publication list. -->
         <section class="research-highlights" data-animate="fade-up">
-            <h2>Research Highlights</h2>
-            <div class="highlights-bar">
-                <div class="highlight-item" data-animate="fade-up" data-animate-delay="0.1">
-                    <h3>Research Highlights</h3>
-                    <p>AAAI 2026, SPSP 2026, CSS Americas 2025, AIxMHC 2026</p>
-                </div>
-                <div class="highlight-item" data-animate="fade-up" data-animate-delay="0.2">
-                    <h3>AI & HCI</h3>
-                    <p>Depression detection from social media using multimodal ML</p>
-                </div>
-                <div class="highlight-item" data-animate="fade-up" data-animate-delay="0.3">
-                    <h3>AI Agents</h3>
-                    <p>Intelligent workflows for complex tasks</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Highlights Section -->
-        <section class="experience-highlights" data-animate="fade-up">
-            <h2>What I'm Doing</h2>
-            <div class="experience-grid">
-                <div class="experience-item" data-animate="scale-in" data-animate-delay="0.1">
-                    <h3>Machine Learning Research Intern</h3>
-                    <p class="org-name">Huawei Technologies · Optimization and Control Theory Lab</p>
-                    <p class="experience-description">Currently developing ML and reinforcement learning solutions for wireless network optimization, reducing unnecessary network switching by 81.3%.</p>
-                </div>
-                <div class="experience-item" data-animate="scale-in" data-animate-delay="0.2">
-                    <h3>AI Developer Intern</h3>
-                    <p class="org-name">LeadDigital · May – Jul 2026</p>
-                    <p class="experience-description">Previously built an AI workflow to convert technical ship blueprints into structured outputs, improving reliability through preprocessing and model evaluation.</p>
-                </div>
-                <div class="experience-item" data-animate="scale-in" data-animate-delay="0.3">
-                    <h3>Full-Stack Research Assistant</h3>
-                    <p class="org-name">Stanford University</p>
-                    <p class="experience-description">Built ML models for social media depression detection, reaching 82% accuracy, and deployed interactive HCI prototypes.</p>
-                </div>
-                <div class="experience-item" data-animate="scale-in" data-animate-delay="0.4">
-                    <h3>IT Officer</h3>
-                    <p class="org-name">Department of National Defence</p>
-                    <p class="experience-description">Designed and maintained web systems for 200+ cadets/staff, automating workflows with Azure cloud tools.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Recent Projects Section -->
-        <section class="recent-projects">
-            <h2>Recent Projects</h2>
-
-            <div class="project-carousel">
-                <!-- Projects will rotate automatically via JavaScript -->
-                <!-- The first project with class 'active' will be shown initially -->
-
-                <!-- Project 1: Paper Reference System -->
-                <div class="project active" data-project="0">
-                    <h3 class="project-title">Paper Reference System</h3>
-                    <p class="project-description">Academic writing tool with article summarization and semantic search, reducing literature review time.</p>
-                    <p class="project-tech"><strong>Tech:</strong> Python, ML (semantic search), NLP</p>
-                    <a href="https://github.com/Paper-Reference-System" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
-                </div>
-
-                <!-- Project 2: Hearing Disability Assistant -->
-                <div class="project" data-project="1">
-                    <h3 class="project-title">Hearing Disability Assistant</h3>
-                    <p class="project-description">Arduino-based wearable that detects critical sounds (alarms, knocks) and logs alerts to a companion web app.</p>
-                    <p class="project-tech"><strong>Tech:</strong> Arduino, Web Development, Hardware Integration</p>
-                    <a href="https://github.com/HOI" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
-                </div>
-
-                <!-- Project 3: Stanford HCI Research -->
-                <div class="project" data-project="2">
-                    <h3 class="project-title">Social Media Depression Detection</h3>
-                    <p class="project-description">ML models (RoBERTa, Decision Trees) for detecting depression signals in social media, achieving 82% accuracy.</p>
-                    <p class="project-tech"><strong>Tech:</strong> Python, RoBERTa, PyTorch, Next.js, Vercel</p>
-                    <a href="#" class="project-link">Research Project</a>
-                </div>
-
-                <!--
-                    TO ADD A NEW PROJECT:
-                    1. Copy one of the project divs above
-                    2. Remove the 'active' class
-                    3. Update data-project to the next number (e.g., data-project="3")
-                    4. Update the title, description, tech stack, and link
-                    5. The JavaScript will automatically include it in rotation
-
-                    TO REMOVE A PROJECT:
-                    1. Delete the entire <div class="project"> block
-                    2. Update data-project numbers to be sequential (0, 1, 2, etc.)
-                -->
-            </div>
-
-            <!-- Navigation Dots (optional visual indicator) -->
-            <div class="carousel-dots">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
-                <!-- Add more dots if you add more projects -->
-            </div>
+            <h2>Research Highlight</h2>
+            <article class="home-research-highlight">
+                <p class="project-status">AAAI 2026 · Full Paper Acceptance</p>
+                <h3>AI in the Wild</h3>
+                <p>A meta-analytic evaluation of depression detection from social media data.</p>
+                <a href="projects.html#publications" class="contact-link">View projects &amp; publications →</a>
+            </article>
         </section>
     </main>
 
