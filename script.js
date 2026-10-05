@@ -14,6 +14,12 @@
     }
 
     function initIntro() {
+        // Keep the intro code available while allowing it to be disabled in HTML.
+        if (document.body.dataset.introEnabled === 'false') return;
+        if (document.body.dataset.introEnabled === 'true') {
+            document.body.classList.add('intro-active');
+        }
+
         // Check if intro has already been completed in this session
         const introCompleted = sessionStorage.getItem('introCompleted');
 
@@ -134,8 +140,8 @@
      *    - Change sessionStorage to localStorage on lines 10 and 98
      *
      * 4. TO DISABLE INTRO:
-     *    - Remove class="intro-active" from <body> tag in index.html
-     *    - Or set sessionStorage.setItem('introCompleted', 'true') in console
+     *    - Set data-intro-enabled="false" on <body> in index.html
+     *    - Set it to "true" to enable the cards again
      *
      * 5. TO ADD MORE CARDS:
      *    - Add new .intro-card in HTML with sequential data-card number
