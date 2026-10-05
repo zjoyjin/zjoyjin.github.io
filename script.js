@@ -272,11 +272,11 @@ const sections = document.querySelectorAll('.section-divider');
 
 if (sidebarLinks.length > 0 && sections.length > 0) {
     function updateActiveLink() {
-        let currentSection = '';
+        let currentSection = sections[0].getAttribute('id');
 
         // Find which section is currently in view
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 150; // Offset for sticky nav
+            const sectionTop = section.getBoundingClientRect().top + window.scrollY - 150;
 
             if (window.scrollY >= sectionTop) {
                 currentSection = section.getAttribute('id');
@@ -306,7 +306,7 @@ if (sidebarLinks.length > 0 && sections.length > 0) {
             const targetSection = document.getElementById(targetId);
 
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 100;
+                const offsetTop = targetSection.getBoundingClientRect().top + window.scrollY - 100;
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
