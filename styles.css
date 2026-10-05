@@ -39,7 +39,7 @@
     --accent-very-light: #e8e4ec;
 }
 
-/* Quote stays visible for five seconds, then the plane reveals the homepage. */
+/* Quote stays visible for four seconds, then the plane reveals the homepage. */
 .welcome-seen .welcome-screen,
 .welcome-seen .welcome-airplane {
     display: none;
@@ -54,7 +54,7 @@
     place-items: center;
     padding: 28px;
     background: #faf9fc;
-    animation: welcome-reveal 2s ease-in-out 5s forwards;
+    animation: welcome-reveal 2s ease-in-out 4s forwards;
 }
 
 .welcome-quote {
@@ -86,7 +86,7 @@
     height: 64px;
     color: var(--accent-color);
     pointer-events: none;
-    animation: welcome-flight 2s ease-in-out 5s forwards;
+    animation: welcome-flight 2s ease-in-out 4s forwards;
 }
 
 .welcome-airplane svg {
@@ -107,7 +107,7 @@
 
 @media (prefers-reduced-motion: reduce) {
     .welcome-airplane { display: none; }
-    .welcome-screen { animation: welcome-fade 0.2s linear 5s forwards; }
+    .welcome-screen { animation: welcome-fade 0.2s linear 4s forwards; }
 }
 
 @keyframes welcome-fade {
@@ -552,6 +552,16 @@ body {
     border: 1px solid var(--accent-very-light);
     border-radius: 16px;
     background: #faf9fc;
+}
+
+.home-experience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .home-experience-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 .home-research-highlight h3 {
