@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Decide before rendering so repeat visits never flash the welcome screen.
+        try {
+            const welcomeKey = 'joyeeWelcomeSeen';
+            if (sessionStorage.getItem(welcomeKey) === 'true') {
+                document.documentElement.classList.add('welcome-seen');
+            } else {
+                sessionStorage.setItem(welcomeKey, 'true');
+            }
+        } catch (error) {
+            // Keep the homepage accessible when browser storage is unavailable.
+            document.documentElement.classList.add('welcome-seen');
+        }
+    </script>
     <title>Joyee Jin - Software Developer</title>
-    <link rel="stylesheet" href="styles.css?v=paper-plane-approach-1">
+    <link rel="stylesheet" href="styles.css?v=welcome-once-1">
     <!-- Tailwind CSS: Utility-first CSS framework (CDN for development) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Motion One: High-performance animations library (12kb) -->
@@ -35,10 +49,8 @@
         </blockquote>
     </div>
     <div class="welcome-airplane" aria-hidden="true">
-        <svg viewBox="0 0 120 100" fill="none">
-            <path d="M60 5L116 86L68 70L60 94L52 70L4 86Z" fill="#e8e4ec" stroke="#8b7a9e" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M60 5L52 70L60 94L68 70Z" fill="#b8aec4"/>
-            <path d="M60 5L60 94M4 86L52 70M116 86L68 70" stroke="#8b7a9e" stroke-width="1.5"/>
+        <svg viewBox="0 0 80 80" fill="currentColor">
+            <path d="M72 36H49L30 8H21L32 36H15L8 26H2L7 40L2 54H8L15 44H32L21 72H30L49 44H72C82 44 82 36 72 36Z"/>
         </svg>
     </div>
     <!-- Intro Overlay Experience -->
@@ -277,6 +289,17 @@
                 -->
 
             </div>
+        </section>
+
+        <section class="experience-highlights" data-animate="fade-up">
+            <h2>Experience</h2>
+            <article class="home-research-highlight">
+                <p class="project-status">Current Role · Jul 2026 – Jan 2027 · Hong Kong</p>
+                <h3>Machine Learning Research Intern</h3>
+                <p class="org-name">Huawei Technologies · Optimization and Control Theory Lab</p>
+                <p>Developing machine learning and reinforcement learning solutions for wireless network optimization.</p>
+                <a href="experience.html#industry" class="contact-link">Explore my experience →</a>
+            </article>
         </section>
 
         <!-- Featured research directs visitors to the full publication list. -->
