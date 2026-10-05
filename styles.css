@@ -39,6 +39,75 @@
     --accent-very-light: #e8e4ec;
 }
 
+/* Quote stays visible for three seconds, then the plane reveals the homepage. */
+.welcome-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: grid;
+    place-items: center;
+    padding: 28px;
+    background: #faf9fc;
+    animation: welcome-reveal 1.2s ease-in-out 3s forwards;
+}
+
+.welcome-quote {
+    max-width: 720px;
+    margin: 0;
+    text-align: center;
+    color: #4a4056;
+}
+
+.welcome-quote p {
+    font-size: clamp(1.4rem, 3.5vw, 2.3rem);
+    line-height: 1.5;
+    font-weight: 500;
+    margin: 0 0 20px;
+}
+
+.welcome-quote cite {
+    font-size: 1rem;
+    font-style: normal;
+    color: var(--accent-color);
+}
+
+.welcome-airplane {
+    position: fixed;
+    z-index: 10001;
+    top: calc(50% - 32px);
+    left: -90px;
+    width: 64px;
+    height: 64px;
+    color: var(--accent-color);
+    pointer-events: none;
+    animation: welcome-flight 1.2s ease-in-out 3s forwards;
+}
+
+.welcome-airplane svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes welcome-reveal {
+    from { clip-path: inset(0 0 0 0); }
+    to { clip-path: inset(0 0 0 100%); visibility: hidden; pointer-events: none; }
+}
+
+@keyframes welcome-flight {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(100vw + 180px)); visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .welcome-airplane { display: none; }
+    .welcome-screen { animation: welcome-fade 0.2s linear 3s forwards; }
+}
+
+@keyframes welcome-fade {
+    to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
 /* ========================================
    INTRO OVERLAY EXPERIENCE
    ======================================== */
